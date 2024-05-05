@@ -34,7 +34,7 @@ class user extends Seeder
             [
                 'name' => 'Teknisi',
                 'username' => 'sam',
-                'password' =>  Hash::make('alda'),
+                'password' =>  Hash::make('sam'),
                 'role' => '2',
                 'created_at' => now(),
                 'updated_at' => now()
@@ -42,7 +42,7 @@ class user extends Seeder
             [
                 'name' => 'Teknisi',
                 'username' => 'rene',
-                'password' =>  Hash::make('alda'),
+                'password' =>  Hash::make('rene'),
                 'role' => '2',
                 'created_at' => now(),
                 'updated_at' => now()

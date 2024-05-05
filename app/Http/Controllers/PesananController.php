@@ -12,11 +12,16 @@ class PesananController extends Controller
     {
         try {
             $pesanan = new PesananModel();
-            $pesanan->layanan = $request->layanan;
-            $pesanan->masalah = $request->masalah;
-            $pesanan->teknisi = $request->teknisi;
-            $pesanan->tgl_pesan = $request->tgl_pesan;
-            $pesanan->harga = $request->harga;
+            $pesanan->layanan = $request->layanan ?? null;
+            $pesanan->masalah = $request->masalah ?? null;
+            $pesanan->id_pelanggan = $request->id_pelanggan ?? null;
+            $pesanan->id_admin = $request->id_admin ?? null;
+            $pesanan->id_teknisi = $request->teknisi ?? null;
+            $pesanan->harga_jasa = $request->harga_jasa ?? null;
+            $pesanan->harga_alat = $request->harga_alat ?? null;
+            $pesanan->tgl_pesan_awal = $request->tgl_pesan ?? null;
+            $pesanan->tgl_pesan_selesai = $request->tgl_pesan_selesai ?? null;
+            $pesanan->deskripsi = $request->deskripsi ?? null;
             $pesanan->save();
 
             return response()->json(['message' => 'Data pesanan berhasil disimpan.'], 200);
