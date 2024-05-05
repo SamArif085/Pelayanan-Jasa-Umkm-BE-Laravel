@@ -14,7 +14,11 @@ Route::get('nama-elektronik', 'App\Http\Controllers\LayananController@getData');
 Route::get('riwayat-pesanan', 'App\Http\Controllers\RiwayanPesananController@getData');
 
 // Logout Route
-Route::middleware('auth:api')->post('logout', 'App\Http\Controllers\LoginController@logout');
+Route::middleware('auth:api')->post('logout', 'App\Http\Controllers\LoginController@logout');  
+
+//CRUD layanan Admin
+Route::get('data-layanan', 'App\Http\Controllers\LayananController@getData');
+Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
 
 // Get User Details
 Route::middleware('auth:api')->get('user', function (Request $request) {
