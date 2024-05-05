@@ -17,9 +17,15 @@ class Pesanan extends Migration
             $table->id();
             $table->string('layanan');
             $table->string('masalah');
-            $table->string('teknisi');
-            $table->string('harga');
-            $table->date('tgl_pesan')->nullable();
+            $table->string('id_pelanggan');
+            $table->string('id_admin');
+            $table->string('id_teknisi');
+            $table->string('harga_jasa');
+            $table->string('harga_alat');
+            $table->date('tgl_pesan_awal')->nullable();
+            $table->date('tgl_pesan_selesai')->nullable();
+            $table->integer('status')->default(0);
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

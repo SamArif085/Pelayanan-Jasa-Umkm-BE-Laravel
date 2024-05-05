@@ -32,6 +32,23 @@ class user extends Seeder
                 'updated_at' => now()
             ],
             [
+                'name' => 'Teknisi',
+                'username' => 'sam',
+                'password' =>  Hash::make('alda'),
+                'role' => '2',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'name' => 'Teknisi',
+                'username' => 'rene',
+                'password' =>  Hash::make('alda'),
+                'role' => '2',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+
+            [
                 'name' => 'Pembeli',
                 'username' => 'clara',
                 'password' =>  Hash::make('clara'),

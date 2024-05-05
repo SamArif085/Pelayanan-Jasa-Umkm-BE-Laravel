@@ -18,7 +18,7 @@ class Layanan extends Migration
             $table->string('layanan');
             $table->string('deskripsi');
             $table->string('gambar');
-            $table->integer('harga');
+            $table->string('teknisi');
             // $table->rememberToken();
             $table->timestamps();
         });
