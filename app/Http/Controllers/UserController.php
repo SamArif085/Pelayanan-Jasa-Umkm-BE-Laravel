@@ -24,7 +24,11 @@ class UserController extends Controller
             return response()->json(['message' => 'Gagal menyimpan data pesanan: ' . $e->getMessage()], 500);
         }
     }
-
+    public function getUserTek()
+    {
+        $getUser = User::where('role',2)->get();
+        return response()->json($getUser);
+    }
     public function getData()
     {
         $getUser = User::whereIn('role', [2, 3])->get();
