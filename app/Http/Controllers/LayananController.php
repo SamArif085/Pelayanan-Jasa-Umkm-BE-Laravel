@@ -29,6 +29,22 @@ class LayananController extends Controller
     }
        
     }
+    public function editLayanan(Request $request, $id)
+    {
+        try {
+            $layanan = layananModel::findOrFail($id);
+            $layanan->layanan = $request->nama_layanan;
+            $layanan->deskripsi = $request->deskripsi;
+            $layanan->teknisi = $request->teknisi;
+
+            $layanan->save();
+
+          
+            return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal memperbarui data pengguna: ' . $e->getMessage()], 500);
+        }
+    }
     public function deleteLayanan($id)
     {
         try {

@@ -26,6 +26,7 @@ Route::middleware('auth:api')->post('logout', 'App\Http\Controllers\LoginControl
 //CRUD layanan Admin
 Route::get('data-layanan', 'App\Http\Controllers\LayananController@getData');
 Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
+Route::put('update-layanan', 'App\Http\Controllers\LayananController@editLayanan');
 Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@deleteLayanan');
 
 // Get User Details
