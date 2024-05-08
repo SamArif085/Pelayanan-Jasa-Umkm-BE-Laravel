@@ -26,7 +26,7 @@ class UserController extends Controller
     }
     public function getUserTek()
     {
-        $getUser = User::where('role',2)->get();
+        $getUser = User::where('role', 2)->get();
         return response()->json($getUser);
     }
     public function getData()

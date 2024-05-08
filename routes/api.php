@@ -21,12 +21,13 @@ Route::get('get-user', 'App\Http\Controllers\UserController@getData');
 Route::get('riwayat-pesanan', 'App\Http\Controllers\RiwayanPesananController@getData');
 
 // Logout Route
-Route::middleware('auth:api')->post('logout', 'App\Http\Controllers\LoginController@logout');  
+Route::middleware('auth:api')->post('logout', 'App\Http\Controllers\LoginController@logout');
 
 //CRUD layanan Admin
 Route::get('data-layanan', 'App\Http\Controllers\LayananController@getData');
+Route::get('get-teknisi-role/{id}', 'App\Http\Controllers\LayananController@getUserTek');
 Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
-Route::put('update-layanan', 'App\Http\Controllers\LayananController@editLayanan');
+Route::put('update-layanan/{id}', 'App\Http\Controllers\LayananController@editLayanan');
 Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@deleteLayanan');
 
 // Get User Details
