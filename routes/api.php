@@ -30,6 +30,9 @@ Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
 Route::put('update-layanan/{id}', 'App\Http\Controllers\LayananController@editLayanan');
 Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@deleteLayanan');
 
+//Teknisi
+Route::get('data-layanan-teknisi', 'App\Http\Controllers\TeknisiController@getData');
+
 // Get User Details
 Route::middleware('auth:api')->get('user', function (Request $request) {
     return $request->user();
