@@ -19,13 +19,18 @@ class TeknisiController extends Controller
     public function editpesananTeknisi(Request $request, $id)
     {
         try {
-            $layanan = layananModel::findOrFail($id);
-            $layanan->layanan = $request->nama_layanan;
-            $layanan->deskripsi = $request->deskripsi;
-            $layanan->teknisi = $request->teknisi;
+            $teknisi = PesananModel ::findOrFail($id);
+            // $teknisi->layanan = $request->layanan;
+            // $teknisi->masalah = $request->masalah;
+            // $teknisi->id_pelanggan = $request->namapelanggan;
+            // $teknisi->id_admin=$request->namaadmin;
+          
+            $teknisi->harga_jasa = $request->jasa;
+            $teknisi->harga_alat = $request->alat;
+            $teknisi->status = $request->status;
 
-            $layanan->save();
-
+            $teknisi->save();
+         
 
             return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
         } catch (\Exception $e) {
