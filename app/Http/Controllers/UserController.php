@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\PesananModel;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -60,6 +61,27 @@ class UserController extends Controller
             return response()->json(['message' => 'Data pengguna berhasil dihapus.'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Gagal menghapus data pengguna: ' . $e->getMessage()], 500);
+        }
+    }
+
+    public function PesananAdmin()
+    {
+        $admin = PesananModel::where('status', 0)->get();
+        return response()->json($admin);
+    }
+
+    public function updatePesanAdmin(Request $request, $id)
+    {
+        try {
+            $teknisi = PesananModel::findOrFail($id);
+            $teknisi->id_admin = $request->id_admin;
+            $teknisi->status = $request->status;
+
+            $teknisi->save();
+
+            return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal memperbarui data pengguna: ' . $e->getMessage()], 500);
         }
     }
 }
