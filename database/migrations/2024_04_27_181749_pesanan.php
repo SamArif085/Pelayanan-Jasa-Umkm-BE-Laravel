@@ -15,17 +15,17 @@ class Pesanan extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
-            $table->string('layanan');
-            $table->string('masalah');
-            $table->string('id_pelanggan');
-            $table->string('id_admin');
-            $table->string('id_teknisi');
-            $table->string('harga_jasa');
-            $table->string('harga_alat');
+            $table->string('layanan')->nullable();
+            $table->string('masalah')->nullable();
+            $table->string('id_pelanggan')->nullable();
+            $table->string('id_admin')->nullable();
+            $table->string('id_teknisi')->nullable();
+            $table->string('harga_jasa')->nullable();
+            $table->string('harga_alat')->nullable();
             $table->date('tgl_pesan_awal')->nullable();
             $table->date('tgl_pesan_selesai')->nullable();
             $table->integer('status')->default(0);
-            $table->string('deskripsi');
+            $table->string('deskripsi')->nullable();
             $table->timestamps();
         });
     }

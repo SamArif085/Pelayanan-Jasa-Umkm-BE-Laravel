@@ -15,10 +15,10 @@ class Layanan extends Migration
     {
         Schema::create('layanan', function (Blueprint $table) {
             $table->id();
-            $table->string('layanan');
-            $table->string('deskripsi');
-            $table->string('gambar');
-            $table->string('teknisi');
+            $table->string('layanan')->nullable();
+            $table->string('deskripsi')->nullable();
+            $table->string('gambar')->nullable();
+            $table->string('teknisi')->nullable();
             // $table->rememberToken();
             $table->timestamps();
         });
