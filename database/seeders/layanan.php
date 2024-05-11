@@ -18,7 +18,7 @@ class Layanan extends Seeder
     {
         $data = [
             [
-                'layanan' => 'mesin_cuci',
+                'layanan' => 'Mesin Cuci',
                 'deskripsi' => 'Mesin Cuci',
                 'gambar' => '',
                 'teknisi' => 1,
@@ -26,7 +26,7 @@ class Layanan extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'layanan' => 'televisi',
+                'layanan' => 'Televisi',
                 'deskripsi' => 'Televisi',
                 'gambar' => '',
                 'teknisi' => 2,
@@ -34,7 +34,7 @@ class Layanan extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'layanan' => 'laptop',
+                'layanan' => 'Laptop',
                 'deskripsi' => 'Laptop',
                 'gambar' => '',
                 'teknisi' => 3,

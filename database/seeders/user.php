@@ -49,7 +49,7 @@ class user extends Seeder
             ],
 
             [
-                'name' => 'Pembeli',
+                'name' => 'Pelanggan',
                 'username' => 'clara',
                 'password' =>  Hash::make('clara'),
                 'role' => '3',

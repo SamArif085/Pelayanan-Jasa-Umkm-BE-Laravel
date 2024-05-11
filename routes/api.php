@@ -38,7 +38,7 @@ Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@del
 
 //Teknisi
 Route::get('data-layanan-teknisi', 'App\Http\Controllers\TeknisiController@getData');
-Route::put('update-pesanan/{id}', 'App\Http\Controllers\TeknisiController@editpesananTeknisi');
+Route::put('update-pesanan-teknisi/{id}', 'App\Http\Controllers\TeknisiController@updatePesananTeknisi');
 
 // Get User Details
 Route::middleware('auth:api')->get('user', function (Request $request) {

@@ -75,6 +75,7 @@ class UserController extends Controller
         try {
             $teknisi = PesananModel::findOrFail($id);
             $teknisi->id_admin = $request->id_admin;
+            $teknisi->id_teknisi = $request->id_teknisi;
             $teknisi->status = $request->status;
 
             $teknisi->save();
