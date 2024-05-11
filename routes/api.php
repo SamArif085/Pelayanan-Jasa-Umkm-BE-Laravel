@@ -36,11 +36,12 @@ Route::get('get-teknisi-role/{id}', 'App\Http\Controllers\LayananController@getU
 
 Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
 Route::put('update-layanan/{id}', 'App\Http\Controllers\LayananController@editLayanan');
-
 Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@deleteLayanan');
+Route::get('riwayat-pesanan-Admin', 'App\Http\Controllers\RiwayanPesananController@getriwayatAdmin');
 
 //Teknisi
 Route::get('data-layanan-teknisi', 'App\Http\Controllers\TeknisiController@getData');
+Route::get('riwayat-pesanan-Teknisi', 'App\Http\Controllers\RiwayanPesananController@getriwayatTeknisi');
 Route::put('update-pesanan-teknisi/{id}', 'App\Http\Controllers\TeknisiController@updatePesananTeknisi');
 
 // Get User Details
