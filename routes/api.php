@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 // Login Route
 Route::post('login', 'App\Http\Controllers\LoginController@cekLogin');
 
+//Registrasi route
+Route::post('registrasi', 'App\Http\Controllers\UserController@registrasiUser');
+
 // Pesanan pelanggan
 Route::post('submit-pesanan', 'App\Http\Controllers\PesananController@tambahPesanan');
 

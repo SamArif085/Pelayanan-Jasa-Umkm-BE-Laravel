@@ -85,4 +85,23 @@ class UserController extends Controller
             return response()->json(['message' => 'Gagal memperbarui data pengguna: ' . $e->getMessage()], 500);
         }
     }
+
+    public function registrasiUser(Request $request)
+    {
+        try {
+
+            $AddUser = new User();
+            $AddUser->name = $request->nama;
+            $AddUser->username = $request->username;
+            $AddUser->password = Hash::make($request->password);
+            $AddUser->no_telp = $request->notelp;
+            $AddUser->role = $request->role;
+
+            $AddUser->save();
+
+            return response()->json(['message' => 'Data pesanan berhasil disimpan.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menyimpan data pesanan: ' . $e->getMessage()], 500);
+        }
+    }
 }
