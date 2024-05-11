@@ -22,8 +22,10 @@ class RiwayanPesananController extends Controller
     {
         $layanan = DB::table('pesanan')
             ->select('pesanan.*', 'users.username')
-            ->where('pesanan.status','!=', 0)
             ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
+            
+            ->where('pesanan.status','!=', 0)
+            
 
             ->get();
 
