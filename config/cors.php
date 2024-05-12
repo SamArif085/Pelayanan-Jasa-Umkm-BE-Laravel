@@ -16,7 +16,7 @@ return [
     */
 
     'paths' => ['api/*'],
-    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
+    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     'allowed_origins' => ['http://localhost:8080'], // Sesuaikan dengan origin aplikasi Vue.js Anda
     'allowed_headers' => ['*'],
     'exposed_headers' => [],

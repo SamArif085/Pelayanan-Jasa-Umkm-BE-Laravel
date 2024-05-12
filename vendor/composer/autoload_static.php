@@ -474,7 +474,7 @@ class ComposerStaticInitb8049aeafda9bcabcb2ad912844e160c
         ),
         'Database\\Seeders\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/database/seeders',
+            0 => __DIR__ . '/../..' . '/database/seeds',
         ),
         'Database\\Factories\\' => 
         array (
@@ -509,6 +509,9 @@ class ComposerStaticInitb8049aeafda9bcabcb2ad912844e160c
         'App\\Http\\Controllers\\LayananController' => __DIR__ . '/../..' . '/app/Http/Controllers/LayananController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\PesananController' => __DIR__ . '/../..' . '/app/Http/Controllers/PesananController.php',
+        'App\\Http\\Controllers\\RiwayanPesananController' => __DIR__ . '/../..' . '/app/Http/Controllers/RiwayanPesananController.php',
+        'App\\Http\\Controllers\\TeknisiController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeknisiController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -518,6 +521,7 @@ class ComposerStaticInitb8049aeafda9bcabcb2ad912844e160c
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\LayananModel' => __DIR__ . '/../..' . '/app/Models/LayananModel.php',
         'App\\Models\\PesananModel' => __DIR__ . '/../..' . '/app/Models/PesananModel.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -637,8 +641,6 @@ class ComposerStaticInitb8049aeafda9bcabcb2ad912844e160c
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
-        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
-        'Database\\Seeders\\user' => __DIR__ . '/../..' . '/database/seeders/user.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',

@@ -23,9 +23,9 @@ class RiwayanPesananController extends Controller
         $layanan = DB::table('pesanan')
             ->select('pesanan.*', 'users.username')
             ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
-            
-            ->where('pesanan.status','!=', 0)
-            
+
+            ->where('pesanan.status', '!=', 0)
+
 
             ->get();
 
@@ -41,5 +41,19 @@ class RiwayanPesananController extends Controller
             ->get();
 
         return response()->json($layanan);
+    }
+
+    public function cancelPesanan(Request $request, $id)
+    {
+        try {
+            $cancelPelanggan = PesananModel::findOrFail($id);
+            $cancelPelanggan->status = $request->status;
+
+            $cancelPelanggan->save();
+
+            return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal memperbarui data pengguna: ' . $e->getMessage()], 500);
+        }
     }
 }
