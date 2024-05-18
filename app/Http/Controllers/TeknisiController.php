@@ -10,29 +10,28 @@ use Illuminate\Support\Facades\DB;
 
 class TeknisiController extends Controller
 {
-    public function getData()
+    public function getData($userID)
     {
-        $teknisi = PesananModel::whereIn('status', [1, 2])
-            ->join('users', 'pesanan.id_pelanggan', '=', 'users.id')
-            ->where('users.role', 3)
-            ->select('pesanan.*', 'users.username')
-
+        $teknisi = PesananModel::with(['UserPelanggan'])
+            ->where('id_teknisi', $userID)
+            ->whereIn('status', [1, 2])
             ->get();
-
         return response()->json($teknisi);
     }
 
     public function updatePesananTeknisi(Request $request, $id)
     {
-        try {
-            $teknisi = PesananModel::findOrFail($id);
-            $teknisi->harga_alat = $request->alat;
-            $teknisi->harga_jasa = $request->jasa;
-            $teknisi->tgl_pesan_selesai = $request->tglServis;
-            $teknisi->status = $request->status;
-            $teknisi->deskripsi = $request->deskripsi;
 
-            $teknisi->save();
+        // dd($request->all());
+        try {
+            $pesanan = PesananModel::findOrFail($id);
+
+            $pesanan->tgl_pesan_selesai = $request->tglServis;
+            $pesanan->deskripsi = $request->deskripsi;
+            $pesanan->harga_jasa = $request->jasa;
+            $pesanan->harga_alat = $request->alat;
+            $pesanan->status = $request->status;
+            $pesanan->save();
 
             return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
         } catch (\Exception $e) {

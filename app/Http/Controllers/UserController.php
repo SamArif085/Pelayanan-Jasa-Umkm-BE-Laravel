@@ -15,6 +15,7 @@ class UserController extends Controller
             $AddUser = new User();
             $AddUser->name = $request->nama;
             $AddUser->username = $request->username;
+            $AddUser->no_telp = $request->no_telp;
             $AddUser->password = Hash::make($request->password);
             $AddUser->role = $request->role;
 
@@ -42,6 +43,7 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             $user->name = $request->nama;
             $user->username = $request->username;
+            $user->no_telp = $request->no_telp;
             $user->role = $request->role;
 
             $user->save();
@@ -66,7 +68,10 @@ class UserController extends Controller
 
     public function PesananAdmin()
     {
-        $admin = PesananModel::where('status', 0)->get();
+        $admin = PesananModel::where('status', 0)
+            ->with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])
+
+            ->get();
         return response()->json($admin);
     }
 

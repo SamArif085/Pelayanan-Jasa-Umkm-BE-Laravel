@@ -41,8 +41,8 @@ Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@del
 Route::get('riwayat-pesanan-Admin', 'App\Http\Controllers\RiwayanPesananController@getriwayatAdmin');
 
 //Teknisi
-Route::get('data-layanan-teknisi', 'App\Http\Controllers\TeknisiController@getData');
-Route::get('riwayat-pesanan-Teknisi', 'App\Http\Controllers\RiwayanPesananController@getriwayatTeknisi');
+Route::get('data-layanan-teknisi/{userID}', 'App\Http\Controllers\TeknisiController@getData');
+Route::get('riwayat-pesanan-Teknisi/{userID}', 'App\Http\Controllers\RiwayanPesananController@getriwayatTeknisi');
 Route::put('update-pesanan-teknisi/{id}', 'App\Http\Controllers\TeknisiController@updatePesananTeknisi');
 
 // Get User Details

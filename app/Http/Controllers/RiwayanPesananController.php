@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Pesanan;
 
 class RiwayanPesananController extends Controller
 {
@@ -16,31 +17,22 @@ class RiwayanPesananController extends Controller
 
             ->get();
 
+        $layanan = PesananModel::with('UserPelanggan')->get();
+
         return response()->json($layanan);
     }
     public function getriwayatAdmin()
     {
-        $layanan = DB::table('pesanan')
-            ->select('pesanan.*', 'users.username')
-            ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
-
-            ->where('pesanan.status', '!=', 0)
-
-
-            ->get();
-
+        $layanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])->get();
         return response()->json($layanan);
     }
-    public function getriwayatTeknisi()
+
+    public function getriwayatTeknisi($userID)
     {
-        $layanan = DB::table('pesanan')
-            ->select('pesanan.*', 'users.username')
-            ->where('pesanan.status', 3)
-            ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
-
+        $riwayatPesanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])
+            ->where('id_teknisi', $userID)
             ->get();
-
-        return response()->json($layanan);
+        return response()->json($riwayatPesanan);
     }
 
     public function cancelPesanan(Request $request, $id)
