@@ -14,6 +14,7 @@ class PesananController extends Controller
             $pesanan = new PesananModel();
             $pesanan->layanan = $request->layanan ?? null;
             $pesanan->masalah = $request->masalah ?? null;
+            $pesanan->alamat = $request->alamat ?? null;
             $pesanan->id_pelanggan = $request->id_pelanggan ?? null;
             $pesanan->id_admin = $request->id_admin ?? null;
             $pesanan->id_teknisi = $request->teknisi ?? null;

@@ -24,6 +24,7 @@ class Pesanan extends Migration
             $table->string('harga_alat')->nullable();
             $table->date('tgl_pesan_awal')->nullable();
             $table->date('tgl_pesan_selesai')->nullable();
+            $table->string('alamat')->nullable();
             $table->integer('status')->default(0);
             $table->string('deskripsi')->nullable();
             $table->timestamps();
