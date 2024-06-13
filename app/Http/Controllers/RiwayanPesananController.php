@@ -14,13 +14,22 @@ class RiwayanPesananController extends Controller
         $layanan = DB::table('pesanan')
             ->select('pesanan.*', 'users.username')
             ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
-
+            
             ->get();
 
         $layanan = PesananModel::with('UserPelanggan')->get();
 
         return response()->json($layanan);
     }
+    public function getDatanotif()
+{
+    // Assuming PesananModel has a relationship defined with UserPelanggan
+    $layanan = PesananModel::with('UserPelanggan')
+                ->whereIn('status', [0, 1, 2])
+                ->get();
+
+    return response()->json($layanan);
+}
     public function getriwayatAdmin()
     {
         $layanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])->get();

@@ -13,6 +13,7 @@ Route::post('registrasi', 'App\Http\Controllers\UserController@registrasiUser');
 Route::post('submit-pesanan', 'App\Http\Controllers\PesananController@tambahPesanan');
 
 Route::get('riwayat-pesanan', 'App\Http\Controllers\RiwayanPesananController@getData');
+Route::get('riwayat-notif', 'App\Http\Controllers\RiwayanPesananController@getDatanotif');
 Route::patch('cancel-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananController@cancelPesanan');
 
 // User
