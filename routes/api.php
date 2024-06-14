@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 // Login Route
 Route::post('login', 'App\Http\Controllers\LoginController@cekLogin');
+Route::post('login/mobile', 'App\Http\Controllers\ApiMoblieController@cekLogin');
+Route::get('data/layanan', 'App\Http\Controllers\ApiMoblieController@layananData');
 
 //Registrasi route
 Route::post('registrasi', 'App\Http\Controllers\UserController@registrasiUser');
@@ -14,6 +16,9 @@ Route::post('submit-pesanan', 'App\Http\Controllers\PesananController@tambahPesa
 
 Route::get('riwayat-pesanan', 'App\Http\Controllers\RiwayanPesananController@getData');
 Route::get('riwayat-notif', 'App\Http\Controllers\RiwayanPesananController@getDatanotif');
+
+Route::get('riwayat-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananController@getData');
+
 Route::patch('cancel-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananController@cancelPesanan');
 
 // User
@@ -37,7 +42,7 @@ Route::get('data-layanan', 'App\Http\Controllers\LayananController@getData');
 Route::get('get-teknisi-role/{id}', 'App\Http\Controllers\LayananController@getUserTek');
 
 Route::post('tambah-layanan', 'App\Http\Controllers\LayananController@Adddata');
-Route::put('update-layanan/{id}', 'App\Http\Controllers\LayananController@editLayanan');
+Route::post('update-layanan/{id}', 'App\Http\Controllers\LayananController@editLayanan');
 Route::delete('delete-layanan/{id}', 'App\Http\Controllers\LayananController@deleteLayanan');
 Route::get('riwayat-pesanan-Admin', 'App\Http\Controllers\RiwayanPesananController@getriwayatAdmin');
 

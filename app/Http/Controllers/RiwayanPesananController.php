@@ -4,32 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Pesanan;
 
 class RiwayanPesananController extends Controller
 {
-    public function getData()
+    public function getData($id)
     {
-        $layanan = DB::table('pesanan')
-            ->select('pesanan.*', 'users.username')
-            ->leftJoin('users', 'pesanan.id_teknisi', '=', 'users.id')
-            
+        $layanan = PesananModel::with('UserPelanggan', 'DataLayanan')
+            ->where('id_pelanggan', $id)
             ->get();
-
-        $layanan = PesananModel::with('UserPelanggan')->get();
 
         return response()->json($layanan);
     }
     public function getDatanotif()
-{
-    // Assuming PesananModel has a relationship defined with UserPelanggan
-    $layanan = PesananModel::with('UserPelanggan')
-                ->whereIn('status', [0, 1, 2])
-                ->get();
+    {
+        // Assuming PesananModel has a relationship defined with UserPelanggan
+        $layanan = PesananModel::with('UserPelanggan')
+            ->whereIn('status', [0, 1, 2])
+            ->get();
 
-    return response()->json($layanan);
-}
+        return response()->json($layanan);
+    }
     public function getriwayatAdmin()
     {
         $layanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])->get();

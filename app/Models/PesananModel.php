@@ -13,6 +13,10 @@ class PesananModel extends Model
     {
         return $this->belongsTo(User::class, 'id_pelanggan', 'id');
     }
+    public function DataLayanan()
+    {
+        return $this->belongsTo(LayananModel::class, 'layanan', 'id');
+    }
     public function UserAdmin()
     {
         return $this->belongsTo(User::class, 'id_admin', 'id');

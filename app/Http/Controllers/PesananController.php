@@ -10,6 +10,7 @@ class PesananController extends Controller
 {
     public function tambahPesanan(Request $request)
     {
+        // dd($request);
         try {
             $pesanan = new PesananModel();
             $pesanan->layanan = $request->layanan ?? null;
