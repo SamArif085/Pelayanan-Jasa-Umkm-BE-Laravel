@@ -12,7 +12,7 @@ class TeknisiController extends Controller
 {
     public function getData($userID)
     {
-        $teknisi = PesananModel::with(['UserPelanggan'])
+        $teknisi = PesananModel::with(['UserPelanggan','DataLayanan'])
             ->where('id_teknisi', $userID)
             ->whereIn('status', [1, 2])
             ->get();

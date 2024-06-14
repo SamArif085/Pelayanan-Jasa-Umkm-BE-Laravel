@@ -15,10 +15,10 @@ class RiwayanPesananController extends Controller
 
         return response()->json($layanan);
     }
-    public function getDatanotif()
+    public function getDatanotif($id)
     {
-        // Assuming PesananModel has a relationship defined with UserPelanggan
-        $layanan = PesananModel::with('UserPelanggan')
+        $layanan = PesananModel::with('UserPelanggan', 'DataLayanan')
+            ->where('id_pelanggan', $id)
             ->whereIn('status', [0, 1, 2])
             ->get();
 
@@ -26,13 +26,13 @@ class RiwayanPesananController extends Controller
     }
     public function getriwayatAdmin()
     {
-        $layanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])->get();
+        $layanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi', 'DataLayanan'])->get();
         return response()->json($layanan);
     }
 
     public function getriwayatTeknisi($userID)
     {
-        $riwayatPesanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])
+        $riwayatPesanan = PesananModel::with(['UserPelanggan', 'UserAdmin', 'UserTeknisi', 'DataLayanan'])
             ->where('id_teknisi', $userID)
             ->get();
         return response()->json($riwayatPesanan);

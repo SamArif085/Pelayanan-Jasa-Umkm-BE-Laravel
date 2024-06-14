@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', 'App\Http\Controllers\LoginController@cekLogin');
 Route::post('login/mobile', 'App\Http\Controllers\ApiMoblieController@cekLogin');
 Route::get('data/layanan', 'App\Http\Controllers\ApiMoblieController@layananData');
+Route::get('foto/layanan/{id}', 'App\Http\Controllers\ApiMoblieController@DetaillayananData');
+
 
 //Registrasi route
 Route::post('registrasi', 'App\Http\Controllers\UserController@registrasiUser');
@@ -14,10 +16,8 @@ Route::post('registrasi', 'App\Http\Controllers\UserController@registrasiUser');
 // Pesanan pelanggan
 Route::post('submit-pesanan', 'App\Http\Controllers\PesananController@tambahPesanan');
 
-Route::get('riwayat-pesanan', 'App\Http\Controllers\RiwayanPesananController@getData');
-Route::get('riwayat-notif', 'App\Http\Controllers\RiwayanPesananController@getDatanotif');
-
 Route::get('riwayat-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananController@getData');
+Route::get('riwayat-notif/{id}', 'App\Http\Controllers\RiwayanPesananController@getDatanotif');
 
 Route::patch('cancel-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananController@cancelPesanan');
 
@@ -25,6 +25,7 @@ Route::patch('cancel-pesanan/{id}', 'App\Http\Controllers\RiwayanPesananControll
 Route::post('submit-user', 'App\Http\Controllers\UserController@tambahUser');
 Route::put('submit-update-user/{id}', 'App\Http\Controllers\UserController@editUser');
 Route::put('update-pesanan-admin/{id}', 'App\Http\Controllers\UserController@updatePesanAdmin');
+Route::get('user/mobile/{id}', 'App\Http\Controllers\ApiMoblieController@UserUpdate');
 
 Route::delete('submit-delete-user/{id}', 'App\Http\Controllers\UserController@deleteUser');
 

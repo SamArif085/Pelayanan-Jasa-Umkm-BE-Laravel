@@ -41,13 +41,13 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            $user->name = $request->nama;
             $user->username = $request->username;
             $user->no_telp = $request->no_telp;
-            $user->role = $request->role;
 
+            if (!empty($request->password)) {
+                $user->password = bcrypt($request->password);
+            }
             $user->save();
-
             return response()->json(['message' => 'Data pengguna berhasil diperbarui.'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Gagal memperbarui data pengguna: ' . $e->getMessage()], 500);
@@ -69,8 +69,7 @@ class UserController extends Controller
     public function PesananAdmin()
     {
         $admin = PesananModel::where('status', 0)
-            ->with(['UserPelanggan', 'UserAdmin', 'UserTeknisi'])
-
+            ->with(['UserPelanggan', 'UserAdmin', 'UserTeknisi', 'DataLayanan'])
             ->get();
         return response()->json($admin);
     }

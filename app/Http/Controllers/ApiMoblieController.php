@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\LayananModel;
-
+use App\Models\PesananModel;
+use App\Models\User;
 
 class ApiMoblieController extends Controller
 {
@@ -50,6 +51,12 @@ class ApiMoblieController extends Controller
     {
         $data['data'] = LayananModel::get()->toArray();
 
+        return response()->json($data);
+    }
+    public function UserUpdate($id)
+    {
+        $data['data'] = User::where('id', $id)
+            ->get();
         return response()->json($data);
     }
 }

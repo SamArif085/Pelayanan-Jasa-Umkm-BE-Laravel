@@ -25,10 +25,9 @@ class LayananController extends Controller
         $data = $request->all();
         if (isset($data['gambar']) && $data['gambar'] != null) {
             $validator = Validator::make($request->all(), [
-                'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Validasi untuk gambar JPEG, PNG, JPG maksimum 2MB
+                'gambar' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
-            // Jika validasi gagal, kembalikan respon dengan pesan error
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
@@ -58,8 +57,6 @@ class LayananController extends Controller
     public function getUserTek($id)
     {
         $getUser = layananModel::findOrFail($id);
-
-
         $getUser = User::join('layanan', function ($join) use ($id) {
             $join->on('layanan.teknisi', '=', 'users.id')
                 ->where('layanan.id', $id);
@@ -67,7 +64,6 @@ class LayananController extends Controller
             ->where('users.role', 2)
             ->select('users.*')
             ->get();
-
         return response()->json($getUser);
     }
 
