@@ -58,6 +58,9 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
+
+            $user->pesanan()->delete();
+
             $user->delete();
 
             return response()->json(['message' => 'Data pengguna berhasil dihapus.'], 200);

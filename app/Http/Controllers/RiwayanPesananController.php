@@ -9,7 +9,7 @@ class RiwayanPesananController extends Controller
 {
     public function getData($id)
     {
-        $layanan = PesananModel::with('UserPelanggan', 'DataLayanan')
+        $layanan = PesananModel::with('UserPelanggan', 'DataLayanan','UserTeknisi')
             ->where('id_pelanggan', $id)
             ->get();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +13,16 @@ class LoginController extends Controller
         $data = [
             'title' => 'Login'
         ];
-        return view('login', $data);
+        $konten = view('admin.login', $data);
+        $js = asset('controller_js/home.js');
+
+
+        $put['title'] = 'Halaman Home';
+        $put['konten'] = $konten;
+        $put['js'] = $js;
+
+
+        return view('admin.template.main', $put);
     }
 
     public function cekLogin(Request $request)
@@ -31,7 +41,7 @@ class LoginController extends Controller
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 
-    
+
 
 
     public function logout(Request $request)
