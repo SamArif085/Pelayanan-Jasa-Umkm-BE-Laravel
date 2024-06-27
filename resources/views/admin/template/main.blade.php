@@ -19,6 +19,8 @@
     <link href="{{asset('css/app.css')  }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
         rel="stylesheet">
@@ -27,7 +29,28 @@
         href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
     <style>
         .custom-navbar {
-            margin-left: 20px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .sidebar-toggle {
+            margin-right: 0;
+            padding-left: 5px;
+        }
+
+        .bi-list.icon-large {
+            font-size: 1.5rem;
+            color: #000;
+
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            padding: 0 10px;
+        }
+
+        .navbar-bg {
+            background-color: #f8f9fa;
+
         }
 
         .sidebar {
@@ -98,10 +121,12 @@
 <!-- DataTables JS -->
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+<script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable({
-            responsive: true,
+    $('#example').DataTable({
+            responsive: false,
+            scrollX: true,
             "language": {
                 "paginate": {
                     "previous": "Previous",
@@ -109,7 +134,6 @@
                 }
             }
         });
-    });
 
     $('#basic-usage').select2( {
     theme: "bootstrap-5",
