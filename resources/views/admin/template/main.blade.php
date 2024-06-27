@@ -5,16 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
-    <meta name="author" content="AdminKit">
-    <meta name="keywords"
-        content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
-
-    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
     <title>{{ isset($title) ? $title : '' }}</title>
     <link href="{{asset('css/app.css')  }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -81,6 +73,29 @@
             max-height: 100%;
             object-fit: contain;
         }
+
+        @media (min-width: 992px) {
+            #example_wrapper {
+                overflow-x: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-nav .dropdown-menu {
+                right: 0;
+                left: auto;
+                min-width: 10rem;
+                max-width: calc(100vw - 1rem);
+                overflow-wrap: break-word;
+                overflow-x: hidden;
+                z-index: 1000;
+            }
+
+            .navbar-nav .dropdown-menu a.dropdown-item {
+                white-space: normal;
+            }
+        }
     </style>
 
     @include('utils.head')
@@ -124,17 +139,13 @@
 <script type="text/javascript" charset="utf8"
     src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script>
-    $('#example').DataTable({
-            responsive: false,
+    if (window.matchMedia("(min-width: 992px)").matches) {
+    $('#example').DataTable();
+    } else {
+        $('#example').DataTable({
             scrollX: true,
-            "language": {
-                "paginate": {
-                    "previous": "Previous",
-                    "next": "Next"
-                }
-            }
         });
-
+    }
     $('#basic-usage').select2( {
     theme: "bootstrap-5",
     width: $( this ).data( 'width' ) ? $( this ).data( 'width' ) : $( this ).hasClass( 'w-100' ) ? '100%' : 'style',
