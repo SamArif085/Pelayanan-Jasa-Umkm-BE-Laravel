@@ -4,8 +4,10 @@ namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class LoginWebController extends Controller
 {
@@ -58,6 +60,38 @@ class LoginWebController extends Controller
         ]);
     }
 
+    public function registrasiWeb()
+    {
+
+        $put = [
+            'title' => 'Registrasi'
+        ];
+        $js = asset('controller_js/home.js');
+
+
+        $put['title'] = 'Halaman Registrasi';
+        // $put['konten'] = $konten;
+        $put['js'] = $js;
+
+        return view('admin.registrasi', $put);
+    }
+
+    public function registrasiUser(Request $request)
+    {
+        try {
+            $insert = new User();
+            $insert->name = $request->nama;
+            $insert->username = $request->username;
+            $insert->password = Hash::make($request->password);
+            $insert->no_telp = $request->notelp;
+            $insert->role = $request->role;
+            $insert->save();
+
+            return redirect('/login')->with('success', 'Registrasi berhasil!');
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Gagal menyimpan data pesanan: ' . $e->getMessage()], 500);
+        }
+    }
 
 
 

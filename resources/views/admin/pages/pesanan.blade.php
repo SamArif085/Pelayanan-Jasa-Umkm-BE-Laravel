@@ -1,6 +1,11 @@
 @if(isset($user) && ($user->role == 1 || $user->role == 2))
 <div class="container-fluid p-0">
+    @if(isset($user) && ($user->role == 1))
     <h1 class="h3 mb-3 text-center"><strong>Pesanan Admin</strong></h1>
+    @endif
+    @if(isset($user) && ($user->role == 2))
+    <h1 class="h3 mb-3 text-center"><strong>Pesanan Teknisi</strong></h1>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -73,7 +78,7 @@
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Detail Riwayat</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Detail Pesanan</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
@@ -233,7 +238,8 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label class="form-label">Tanggal Peanan Selesai</label>
-                                                            <input class="form-control form-control-lg" type="date" name="tgl_pesan_selesai"
+                                                            <input class="form-control form-control-lg" type="date"
+                                                                name="tgl_pesan_selesai"
                                                                 value="{{ $item['tgl_pesan_selesai'] }}" />
                                                         </div>
                                                         <div class="mb-3">
@@ -292,12 +298,12 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Detail Masalah</label>
+                            <label class="form-label">Detail Masalah Elektronik</label>
                             <textarea class="form-control" name="masalah" id="masalah" cols="30" rows="4"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Tanggal Servis</label>
+                            <label class="form-label">Tanggal Pesanan Jasa</label>
                             <input class="form-control form-control-lg" type="date" name="tgl_pesan" id="tgl_pesan"
                                 placeholder="Tanggal Servis" />
                         </div>

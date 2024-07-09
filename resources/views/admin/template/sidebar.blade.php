@@ -16,13 +16,13 @@
             <li class="sidebar-item">
                 <a href="{{ route('pesanan-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Pesanan Admin</span>
+                    <span class="align-middle">Pesanan Baru</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="{{ route('layanan-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Layanan Admin</span>
+                    <span class="align-middle">Layanan Jasa</span>
                 </a>
             </li>
             <li class="sidebar-item">
@@ -34,7 +34,7 @@
             <li class="sidebar-item">
                 <a href="{{ route('riwayat-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Riwayat Pelanggan</span>
+                    <span class="align-middle">Pesanan</span>
                 </a>
             </li>
             @endif
@@ -50,13 +50,13 @@
             <li class="sidebar-item">
                 <a href="{{ route('pesanan-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Pesanan Teknisi</span>
+                    <span class="align-middle">Pesanan Baru</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="{{ route('riwayat-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Riwayat Teknisi</span>
+                    <span class="align-middle">Riwayat Pesanan</span>
                 </a>
             </li>
             @endif
@@ -72,19 +72,19 @@
             <li class="sidebar-item">
                 <a href="{{ route('pesanan-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Pesanan Pelanggan</span>
+                    <span class="align-middle">Pesanan Jasa</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="{{ route('layanan-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Layanan Pelanggan</span>
+                    <span class="align-middle">Daftar Layanan</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="{{ route('riwayat-web') }}" class="sidebar-link">
                     <i class="align-middle" data-feather="sliders"></i>
-                    <span class="align-middle">Riwayat Pelanggan</span>
+                    <span class="align-middle">Riwayat Pesanan</span>
                 </a>
             </li>
             @endif

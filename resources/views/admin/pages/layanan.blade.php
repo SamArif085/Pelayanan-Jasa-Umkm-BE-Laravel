@@ -1,6 +1,6 @@
 @if($user->role == 1)
 <div class="container-fluid p-0">
-    <h1 class="h3 mb-3 text-center">Pesanan <strong>{{ $user->username }}</strong></h1>
+    <h1 class="h3 mb-3 text-center">Layanan <strong>{{ $user->username }}</strong></h1>
     <div class="mb-3">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             Tambah

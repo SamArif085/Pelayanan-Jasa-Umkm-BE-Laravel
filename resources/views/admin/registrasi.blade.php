@@ -14,15 +14,13 @@
     <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-    <title>Halaman Login</title>
+    <title>Halaman Ragistrasi</title>
     <link href="{{asset('css/app.css')  }}" rel="stylesheet">
     @include('utils.head')
 </head>
 
 <body>
-    <div class="main">
+    <main class="d-flex w-100">
         <div class="container d-flex flex-column">
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
@@ -32,14 +30,17 @@
                                 <img style="width: 18rem" src="{{ asset('images/logo/logo.png') }}" class="img-fluid"
                                     alt="Responsive image" />
                             </div>
-                            <h1 class="h2">Halaman Login</h1>
-                            <p class="lead">Sign in to your account to continue</p>
+                            <h1 class="h2">Halaman Pendaftaran</h1>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-4">
-                                    <form action="{{ route('login-cek') }}" method="POST">
+                                    <form action="{{ route('registrasi-submit') }}" method="POST">
                                         @csrf
+                                        <div class="mb-3">
+                                            <input type="hidden" name="nama" value="Pelanggan"
+                                                class="form-control form-control-lg" required />
+                                        </div>
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username:</label>
                                             <input type="text" id="username" name="username"
@@ -49,15 +50,20 @@
                                             <label for="password" class="form-label">Password:</label>
                                             <input type="password" id="password" name="password"
                                                 class="form-control form-control-lg" required />
-                                            <small style="float: right;">
-                                                <a href="{{ route('registrasi-web') }}">
-                                                    registrasi
-                                                </a>
-                                            </small>
+                                            <!-- <small><a href="#">Forgot password?</a></small> -->
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">No Telepon</label>
+                                            <input type="text" id="username" name="notelp"
+                                                class="form-control form-control-lg" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="hidden" value="3" name="role"
+                                                class="form-control form-control-lg" required />
                                         </div>
                                         <div class="text-center mt-3">
                                             <button type="submit" class="btn btn-lg btn-primary">
-                                                Sign in
+                                                Registrasi
                                             </button>
                                         </div>
                                     </form>
@@ -68,21 +74,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
 
 @include('utils.scripts')
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-@if (session('success'))
-<script>
-    Swal.fire({
-            title: 'Success',
-            text: '{{ session('success') }}',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-</script>
-@endif

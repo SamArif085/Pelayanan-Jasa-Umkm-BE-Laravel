@@ -103,7 +103,6 @@ class UserController extends Controller
             $AddUser->password = Hash::make($request->password);
             $AddUser->no_telp = $request->notelp;
             $AddUser->role = $request->role;
-
             $AddUser->save();
 
             return response()->json(['message' => 'Data pesanan berhasil disimpan.'], 200);

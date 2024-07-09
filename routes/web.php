@@ -26,6 +26,8 @@ Route::get('/', [LandingPageController::class, 'Home'])->name('/')->middleware('
 Route::get('/login', [LoginWebController::class, 'index'])->name('web-login');
 Route::post('/login-cek', [LoginWebController::class, 'cekLogin'])->name('login-cek');
 Route::post('/logout', [LoginWebController::class, 'logout'])->name('logout');
+Route::get('/registrasi-web', [LoginWebController::class, 'registrasiWeb'])->name('registrasi-web');
+Route::post('/registrasi-submit', [LoginWebController::class, 'registrasiUser'])->name('registrasi-submit');
 
 //HALAMAN DASHBOARD
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
